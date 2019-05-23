@@ -71,6 +71,9 @@ const app = new Vue({
     },
 
     minimumDamage() {
+      if (this.isFormComplete) {
+        return this.damage * this.accuracy * this.minimumHits;
+      }
       return "";
     },
 
@@ -82,6 +85,9 @@ const app = new Vue({
     },
 
     maximumDamage() {
+      if (this.isFormComplete) {
+        return this.damage * this.accuracy * this.maximumHits;
+      }
       return "";
     },
 
@@ -95,12 +101,12 @@ const app = new Vue({
   data: {
     css: {
       label: "db mt3 mb1 b",
-      input: "db ba bw1 b--dark-blue pa2 bg-lightest-blue navy",
+      input: "db ba bw1 b--dark-blue pa2 bg-lightest-blue navy code",
       thead: "",
       tbody: "",
       table: "w-100 collapse mt3 bg-lightest-blue navy",
-      tr: "ba bw1 b--dark-blue tl",
-      td: "ba bw1 b--dark-blue pa2 tr",
+      tr: "",
+      td: "ba bw1 b--dark-blue pa2 tr code",
       th: "ba bw1 b--dark-blue pa2 tl bg-light-blue"
     },
 
