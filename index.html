@@ -10,11 +10,12 @@
     />
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
     <script type="module" src="main.js"></script>
+    <style>[v-cloak] { display: none; }</style>
     <title>DMG Calc</title>
   </head>
   <body class="center sans-serif pa3 bg-blue washed-blue">
     <h1 class="mv2 tc">Damage Calculator</h1>
-    <div id="app" class="flex-ns">
+    <div id="app" class="flex-ns" v-cloak>
       <div class="mr4">
         <div>
           <label for="damage" v-bind:class="css.label">Damage</label>
