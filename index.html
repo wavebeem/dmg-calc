@@ -12,8 +12,8 @@
     <script type="module" src="main.js"></script>
     <title>DMG Calc</title>
   </head>
-  <body class="center mw6 sans-serif pa2 bg-washed-yellow">
-    <h1 class="bb bw1 b--black-10 pb2 mv2">Damage Calculator</h1>
+  <body class="center mw6 sans-serif pa2 bg-blue washed-blue">
+    <h1 class="mv2">Damage Calculator</h1>
     <div id="app" class="flex-ns">
       <div class="mr4">
         <div>
@@ -74,18 +74,24 @@
           <tbody v-bind:class="css.tbody">
             <tr v-bind:class="css.tr">
               <th v-bind:class="css.th">Average</th>
-              <td v-bind:class="css.td">{{ averageDamage }}</td>
-              <td v-bind:class="css.td">{{ averageEfficiency }}</td>
+              <td v-bind:class="css.td">{{ averageDamage | formatNumber }}</td>
+              <td v-bind:class="css.td">
+                {{ averageEfficiency | formatNumber }}
+              </td>
             </tr>
             <tr v-bind:class="css.tr">
               <th v-bind:class="css.th">Minimum</th>
-              <td v-bind:class="css.td">{{ minimumDamage }}</td>
-              <td v-bind:class="css.td">{{ minimumEfficiency }}</td>
+              <td v-bind:class="css.td">{{ minimumDamage | formatNumber }}</td>
+              <td v-bind:class="css.td">
+                {{ minimumEfficiency | formatNumber }}
+              </td>
             </tr>
             <tr v-bind:class="css.tr">
               <th v-bind:class="css.th">Maximum</th>
-              <td v-bind:class="css.td">{{ maximumDamage }}</td>
-              <td v-bind:class="css.td">{{ maximumEfficiency }}</td>
+              <td v-bind:class="css.td">{{ maximumDamage | formatNumber }}</td>
+              <td v-bind:class="css.td">
+                {{ maximumEfficiency | formatNumber }}
+              </td>
             </tr>
           </tbody>
         </table>
