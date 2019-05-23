@@ -118,6 +118,3 @@ const app = new Vue({
     inputCost: "27"
   }
 });
-
-console.log(app);
-window.app = app;
