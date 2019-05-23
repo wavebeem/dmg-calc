@@ -1,12 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>DMG Calc</title>
-</head>
-<body>
-  DMG Calc
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"
+    />
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
+    <script type="module" src="main.js"></script>
+    <title>DMG Calc</title>
+  </head>
+  <body class="center mw6 sans-serif pa2 bg-washed-yellow">
+    <h1 class="bb bw1 b--black-10 pb2 mv2">Damage Calculator</h1>
+    <div id="app" class="flex-ns">
+      <div class="mr4">
+        <div>
+          <label for="damage" v-bind:class="css.label">Damage</label>
+          <input
+            id="damage"
+            type="number"
+            v-model="inputDamage"
+            v-bind:class="css.input"
+          />
+        </div>
+        <div>
+          <label for="accuracy" v-bind:class="css.label">Accuracy (%)</label>
+          <input
+            id="accuracy"
+            type="number"
+            v-model="inputAccuracy"
+            v-bind:class="css.input"
+          />
+        </div>
+        <div>
+          <label for="minimumHits" v-bind:class="css.label">Minimum Hits</label>
+          <input
+            id="minimumHits"
+            type="number"
+            v-model="inputMinimumHits"
+            v-bind:class="css.input"
+          />
+        </div>
+        <div>
+          <label for="maximumHits" v-bind:class="css.label">Maximum Hits</label>
+          <input
+            id="maximumHits"
+            type="number"
+            v-model="inputMaximumHits"
+            v-bind:class="css.input"
+          />
+        </div>
+        <div>
+          <label for="cost" v-bind:class="css.label">Cost (MP, TP, etc.)</label>
+          <input
+            id="cost"
+            type="number"
+            v-model="inputCost"
+            v-bind:class="css.input"
+          />
+        </div>
+      </div>
+      <div class="flex-auto">
+        <table v-bind:class="css.table">
+          <thead v-bind:class="css.thead">
+            <tr v-bind:class="css.tr">
+              <th v-bind:class="css.th"></th>
+              <th v-bind:class="css.th">Damage</th>
+              <th v-bind:class="css.th">Efficiency</th>
+            </tr>
+          </thead>
+          <tbody v-bind:class="css.tbody">
+            <tr v-bind:class="css.tr">
+              <th v-bind:class="css.th">Average</th>
+              <td v-bind:class="css.td">{{ averageDamage }}</td>
+              <td v-bind:class="css.td">{{ averageEfficiency }}</td>
+            </tr>
+            <tr v-bind:class="css.tr">
+              <th v-bind:class="css.th">Minimum</th>
+              <td v-bind:class="css.td">{{ minimumDamage }}</td>
+              <td v-bind:class="css.td">{{ minimumEfficiency }}</td>
+            </tr>
+            <tr v-bind:class="css.tr">
+              <th v-bind:class="css.th">Maximum</th>
+              <td v-bind:class="css.td">{{ maximumDamage }}</td>
+              <td v-bind:class="css.td">{{ maximumEfficiency }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>
