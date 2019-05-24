@@ -10,13 +10,25 @@
     />
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
     <script type="module" src="main.js"></script>
-    <style>[v-cloak] { display: none; }</style>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
     <title>DMG Calc</title>
   </head>
-  <body class="center sans-serif pa3 bg-blue washed-blue">
-    <h1 class="mv2 tc">Damage Calculator</h1>
-    <div id="app" class="flex-ns" v-cloak>
-      <div class="mr4">
+  <body class="center sans-serif pa3 bg-light-gray near-black mw8">
+    <div id="app" class="flex-l" v-cloak>
+      <form class="mr4-l flex-auto w-30-l" v-on:submit="submit($event)">
+        <h1 class="mt2 mb0">Damage Calculator</h1>
+        <p class="mt0">
+          &copy; 2019 <a href="https://mockbrian.com">Brian Mock</a>
+        </p>
+        <div>
+          <label for="name" v-bind:class="css.label">Name</label>
+          <input id="name" v-model="name" v-bind:class="css.input" />
+        </div>
+
         <div>
           <label for="damage" v-bind:class="css.label">Damage</label>
           <input
@@ -62,40 +74,21 @@
             v-bind:class="css.input"
           />
         </div>
-      </div>
-      <div class="flex-auto">
-        <table v-bind:class="css.table">
-          <thead v-bind:class="css.thead">
-            <tr v-bind:class="css.tr">
-              <th v-bind:class="css.th"></th>
-              <th v-bind:class="css.th">Damage</th>
-              <th v-bind:class="css.th">Efficiency</th>
-            </tr>
-          </thead>
-          <tbody v-bind:class="css.tbody">
-            <tr v-bind:class="css.tr">
-              <th v-bind:class="css.th">Average</th>
-              <td v-bind:class="css.td">{{ averageDamage | formatNumber }}</td>
-              <td v-bind:class="css.td">
-                {{ averageEfficiency | formatNumber }}
-              </td>
-            </tr>
-            <tr v-bind:class="css.tr">
-              <th v-bind:class="css.th">Minimum</th>
-              <td v-bind:class="css.td">{{ minimumDamage | formatNumber }}</td>
-              <td v-bind:class="css.td">
-                {{ minimumEfficiency | formatNumber }}
-              </td>
-            </tr>
-            <tr v-bind:class="css.tr">
-              <th v-bind:class="css.th">Maximum</th>
-              <td v-bind:class="css.td">{{ maximumDamage | formatNumber }}</td>
-              <td v-bind:class="css.td">
-                {{ maximumEfficiency | formatNumber }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="mt3">
+          <button
+            v-bind:class="isFormDisabled ? css.buttonDisabled : css.button"
+            v-bind:disabled="isFormDisabled"
+          >
+            Add
+          </button>
+        </div>
+      </form>
+      <div class="flex-auto w-70-l">
+        <spell-table
+          v-for="spell in spells"
+          v-bind:spell="spell"
+          v-on:delete="onDelete"
+        ></spell-table>
       </div>
     </div>
   </body>
