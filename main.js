@@ -44,7 +44,7 @@ Vue.component("spell-table", {
     },
 
     accuracy() {
-      return this.spell.accuracy / 100;
+      return this.spell.accuracy;
     },
 
     cost() {
@@ -63,9 +63,14 @@ Vue.component("spell-table", {
       if (this.minimumHits === this.maximumHits) {
         return this.minimumHits;
       }
-      const count = this.maximumHits - this.minimumHits;
-      const sum = (count / 2) * (this.minimumHits + this.maximumHits);
-      return sum / count;
+      // I'm sure there's some formula for this, but I don't know what it is and
+      // I'm just gonna use a for-loop, sorry!
+      let result = 0;
+      for (let i = this.minimumHits; i <= this.maximumHits; i++) {
+        result += i;
+      }
+      result /= 1 + this.maximumHits - this.minimumHits;
+      return result;
     },
 
     averageDamage() {
@@ -107,27 +112,45 @@ Vue.component("spell-table", {
       <h2 class="Results-Name">{{ spell.name }}</h2>
       <div>
         <div class="Results-Item">
-          <div class="Results-Label">Damage</div>
+          <div class="Results-Label">Damage: Average</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageDamage | formatNumber }}
           </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Damage: Minumum</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
-            {{ minimumDamage | formatNumber }} &ndash; {{ maximumDamage |
-            formatNumber }}
+            {{ minimumDamage | formatNumber }}
           </div>
         </div>
         <div class="Results-Item">
-          <div class="Results-Label">Efficiency</div>
+          <div class="Results-Label">Damage: Maximum</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ maximumDamage | formatNumber }}
+          </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Efficiency: Average</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageEfficiency | formatNumber }}
           </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Efficiency: Minimum</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
-            {{ minimumEfficiency | formatNumber }} &ndash; {{ maximumEfficiency
-            | formatNumber }}
+            {{ minimumEfficiency | formatNumber }}
+          </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Efficiency: Maximum</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ maximumEfficiency | formatNumber }}
           </div>
         </div>
       </div>
@@ -143,6 +166,10 @@ Vue.component("spell-table", {
   `
 });
 
+function makeKey(string) {
+  return [string, new Date().toISOString(), Math.random()].join(" | ");
+}
+
 const app = new Vue({
   el: "#app",
 
@@ -154,13 +181,13 @@ const app = new Vue({
     submit(event) {
       event.preventDefault();
       this.spells.unshift({
-        id: Math.random(),
+        id: makeKey(this.name),
         name: this.name,
-        damage: this.inputDamage,
-        accuracy: this.inputAccuracy,
-        minimumHits: this.inputMinimumHits,
-        maximumHits: this.inputMaximumHits || this.inputMinimumHits,
-        cost: this.inputCost
+        damage: this.damage,
+        accuracy: this.accuracy,
+        minimumHits: this.minimumHits,
+        maximumHits: this.maximumHits,
+        cost: this.cost
       });
     }
   },
@@ -179,7 +206,7 @@ const app = new Vue({
     },
 
     maximumHits() {
-      return Number(this.inputMaximumHits || 0);
+      return Number(this.inputMaximumHits || this.inputMinimumHits);
     },
 
     cost() {
