@@ -69,6 +69,10 @@
           <label for="cost" class="Label">Cost (MP, TP, etc.)</label>
           <input id="cost" type="number" v-model="inputCost" class="Input" />
         </div>
+        <div>
+          <label for="time" class="Label">Time (Turns, Seconds, etc.)</label>
+          <input id="time" type="number" v-model="inputTime" class="Input" />
+        </div>
         <div class="mt3">
           <button class="Button" v-bind:disabled="isFormDisabled">
             Add

@@ -59,6 +59,10 @@ Vue.component("spell-table", {
       return this.spell.maximumHits;
     },
 
+    time() {
+      return this.spell.time;
+    },
+
     averageHits() {
       if (this.minimumHits === this.maximumHits) {
         return this.minimumHits;
@@ -104,6 +108,10 @@ Vue.component("spell-table", {
         return this.maximumDamage / this.cost;
       }
       return "";
+    },
+
+    averageDPS() {
+      return this.averageDamage / this.time;
     }
   },
 
@@ -153,6 +161,13 @@ Vue.component("spell-table", {
             {{ maximumEfficiency | formatNumber }}
           </div>
         </div>
+        <div class="Results-Item">
+          <div class="Results-Label">DPS: Average</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ averageDPS | formatNumber }}
+          </div>
+        </div>
       </div>
       <button
         class="RemoveButton"
@@ -187,7 +202,8 @@ const app = new Vue({
         accuracy: this.accuracy,
         minimumHits: this.minimumHits,
         maximumHits: this.maximumHits,
-        cost: this.cost
+        cost: this.cost,
+        time: this.time
       });
     }
   },
@@ -198,11 +214,11 @@ const app = new Vue({
     },
 
     accuracy() {
-      return Number(this.inputAccuracy || 0) / 100;
+      return Number(this.inputAccuracy || 100) / 100;
     },
 
     minimumHits() {
-      return Number(this.inputMinimumHits || 0);
+      return Number(this.inputMinimumHits || 1);
     },
 
     maximumHits() {
@@ -213,13 +229,18 @@ const app = new Vue({
       return Number(this.inputCost || 0);
     },
 
+    time() {
+      return Number(this.inputTime || 1);
+    },
+
     isFormDisabled() {
       return !(
         this.name &&
         this.inputDamage &&
         this.inputAccuracy &&
         this.inputMinimumHits &&
-        this.inputCost
+        this.inputCost &&
+        this.inputTime
       );
     }
   },
@@ -231,6 +252,7 @@ const app = new Vue({
     inputMinimumHits: "1",
     inputMaximumHits: "",
     inputCost: "",
+    inputTime: "",
 
     spells: storage.get("spells", [])
   }
