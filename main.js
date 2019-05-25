@@ -113,60 +113,60 @@ Vue.component("spell-table", {
 
   template: html`
     <div>
-      <div class="flex mb2">
-        <h2 class="flex-auto ma0">{{ spell.name }}</h2>
+      <div class="Results">
+        <div class="flex mb3">
+          <h2 class="Results-Name">{{ spell.name }}</h2>
           <button
+            class="RemoveButton"
             type="button"
             v-bind:aria-label="'Remove ' + spell.name"
             v-on:click="$emit('delete', spell)"
-            class="RemoveButton"
           >
-            &times;
+            Remove
           </button>
-      </div>
-      <div class="Results">
-          <div class="Results-Item">
-            <div class="Results-Label">Average Damage</div>
-            <div class="Results-Divider"></div>
-            <div class="Results-Number">
-              {{ averageDamage | formatNumber }}
-            </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Damage: Average</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ averageDamage | formatNumber }}
           </div>
-          <div class="Results-Item">
-            <div class="Results-Label">Average Efficiency</div>
-            <div class="Results-Divider"></div>
-            <div class="Results-Number">
-              {{ averageEfficiency | formatNumber }}
-            </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Damage: Minimum</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ minimumDamage | formatNumber }}
           </div>
-          <div class="Results-Item">
-            <div class="Results-Label">Minimum Damage</div>
-            <div class="Results-Divider"></div>
-            <div class="Results-Number">
-              {{ minimumDamage | formatNumber }}
-            </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Damage: Maximum</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ maximumDamage | formatNumber }}
           </div>
-          <div class="Results-Item">
-            <div class="Results-Label">Minimum Efficiency</div>
-            <div class="Results-Divider"></div>
-            <div class="Results-Number">
-              {{ minimumEfficiency | formatNumber }}
-            </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Efficiency: Average</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ averageEfficiency | formatNumber }}
           </div>
-          <div class="Results-Item">
-            <div class="Results-Label">Maximum Damage</div>
-            <div class="Results-Divider"></div>
-            <div class="Results-Number">
-              {{ maximumDamage | formatNumber }}
-            </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Efficiency: Minimum</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ minimumEfficiency | formatNumber }}
           </div>
-          <div class="Results-Item">
-            <div class="Results-Label">Maximum Efficiency</div>
-            <div class="Results-Divider"></div>
-            <div class="Results-Number">
-              {{ maximumEfficiency | formatNumber }}
-            </div>
+        </div>
+        <div class="Results-Item">
+          <div class="Results-Label">Efficiency: Maximum</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ maximumEfficiency | formatNumber }}
           </div>
+        </div>
       </div>
     </div>
   `
@@ -243,18 +243,6 @@ const app = new Vue({
     inputCost: "0",
 
     spells: storage.get("spells", [])
-    // Temporarily use the Zodiac lv.1 Meteor spell
-    // spells: [
-    //   {
-    //     id: Math.random(),
-    //     name: "[Zodiac] Meteor (L1)",
-    //     damage: 50,
-    //     accuracy: 95,
-    //     minimumHits: 2,
-    //     maximumHits: 5,
-    //     cost: 2
-    //   }
-    // ]
   }
 });
 

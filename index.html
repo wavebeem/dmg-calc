@@ -18,68 +18,59 @@
     </style>
     <title>DMG Calc</title>
   </head>
-  <body class="center sans-serif pa3 mw8">
+  <body class="center sans-serif pa3 mw7">
+    <h1 class="ma0">Damage Calculator</h1>
+    <p class="mt1">
+      &copy; 2019 <a href="https://mockbrian.com">Brian Mock</a>
+    </p>
     <div id="app" class="flex-l" v-cloak>
       <form class="mr4-l flex-auto w-30-l" v-on:submit="submit($event)">
-        <h1 class="mt2 mb0">Damage Calculator</h1>
-        <p class="mt0">
-          &copy; 2019 <a href="https://mockbrian.com">Brian Mock</a>
-        </p>
         <div>
-          <label for="name" v-bind:class="css.label">Name</label>
-          <input id="name" v-model="name" v-bind:class="css.input" />
+          <label for="name" class="Label">Name</label>
+          <input id="name" v-model="name" class="Input" />
         </div>
-
         <div>
-          <label for="damage" v-bind:class="css.label">Damage</label>
+          <label for="damage" class="Label">Damage</label>
           <input
             id="damage"
             type="number"
             v-model="inputDamage"
-            v-bind:class="css.input"
+            class="Input"
           />
         </div>
         <div>
-          <label for="accuracy" v-bind:class="css.label">Accuracy (%)</label>
+          <label for="accuracy" class="Label">Accuracy (%)</label>
           <input
             id="accuracy"
             type="number"
             v-model="inputAccuracy"
-            v-bind:class="css.input"
+            class="Input"
           />
         </div>
         <div>
-          <label for="minimumHits" v-bind:class="css.label">Minimum Hits</label>
+          <label for="minimumHits" class="Label">Minimum Hits</label>
           <input
             id="minimumHits"
             type="number"
             v-model="inputMinimumHits"
-            v-bind:class="css.input"
+            class="Input"
           />
         </div>
         <div>
-          <label for="maximumHits" v-bind:class="css.label">Maximum Hits</label>
+          <label for="maximumHits" class="Label">Maximum Hits</label>
           <input
             id="maximumHits"
             type="number"
             v-model="inputMaximumHits"
-            v-bind:class="css.input"
+            class="Input"
           />
         </div>
         <div>
-          <label for="cost" v-bind:class="css.label">Cost (MP, TP, etc.)</label>
-          <input
-            id="cost"
-            type="number"
-            v-model="inputCost"
-            v-bind:class="css.input"
-          />
+          <label for="cost" class="Label">Cost (MP, TP, etc.)</label>
+          <input id="cost" type="number" v-model="inputCost" class="Input" />
         </div>
         <div class="mt3">
-          <button
-            v-bind:class="isFormDisabled ? css.buttonDisabled : css.button"
-            v-bind:disabled="isFormDisabled"
-          >
+          <button class="Button" v-bind:disabled="isFormDisabled">
             Add
           </button>
         </div>

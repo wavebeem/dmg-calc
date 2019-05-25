@@ -1,53 +1,145 @@
 :root {
-  --CRed: hsl(0, 100%, 50%);
+  --rounded: 0px;
 
-  --CBG10: hsl(200, 50%, 10%);
-  --CBG20: hsl(200, 50%, 20%);
-  --CBG30: hsl(200, 50%, 30%);
-  --CBG80: hsl(200, 50%, 80%);
-  --CBG90: hsl(200, 50%, 90%);
+  --c_red_10: hsl(10, 75%, 10%);
+  --c_red_20: hsl(10, 75%, 20%);
+  --c_red_50: hsl(10, 75%, 50%);
+  --c_red_60: hsl(10, 75%, 60%);
+  --c_red_70: hsl(10, 75%, 70%);
 
-  --CFG10: hsl(90, 50%, 10%);
-  --CFG20: hsl(90, 50%, 20%);
-  --CFG30: hsl(90, 50%, 30%);
-  --CFG80: hsl(90, 50%, 80%);
-  --CFG90: hsl(90, 50%, 90%);
+  --c_green_10: hsl(90, 75%, 10%);
+  --c_green_20: hsl(90, 75%, 20%);
+  --c_green_30: hsl(90, 75%, 30%);
+  --c_green_40: hsl(90, 75%, 40%);
+  --c_green_50: hsl(90, 75%, 50%);
+  --c_green_60: hsl(90, 75%, 60%);
+
+  --c_bg_10: hsl(200, 50%, 10%);
+  --c_bg_20: hsl(200, 50%, 20%);
+  --c_bg_30: hsl(200, 43%, 30%);
+  --c_bg_80: hsl(200, 50%, 80%);
+  --c_bg_90: hsl(200, 50%, 90%);
+
+  --c_fg_10: hsl(90, 50%, 10%);
+  --c_fg_20: hsl(90, 50%, 20%);
+  --c_fg_30: hsl(90, 50%, 30%);
+  --c_fg_80: hsl(90, 50%, 80%);
+  --c_fg_90: hsl(90, 50%, 90%);
 }
 
 body {
-  background: var(--CBG10);
-  color: var(--CBG90);
+  background: var(--c_bg_10);
+  color: var(--c_bg_80);
+}
+
+a {
+  color: inherit;
 }
 
 .RemoveButton {
+  border-radius: var(--rounded);
   box-sizing: border-box;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  font-size: 16px;
-  color: var(--CRed);
-  border: 2px solid;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  padding: 0 0.5em;
+  border: 1px solid;
   font-weight: bold;
-  border-radius: 9999px;
-  background: transparent;
+  border-color: var(--c_red_60);
+  background: var(--c_red_50);
+  color: var(--c_red_20);
+}
+
+.RemoveButton:hover {
+  background: var(--c_red_60);
+  border-color: var(--c_red_70);
+}
+
+.RemoveButton > * {
+  flex: 1 1 auto;
 }
 
 .Results {
-  background: var(--CBG20);
-  color: var(--CBG80);
-  padding: 0.5em;
-  font-size: 1.25rem;
-  font-family: monospace;
+  border-radius: var(--rounded);
+  border: 1px solid var(--c_bg_30);
+  background: var(--c_bg_20);
+  color: var(--c_fg_80);
+  padding: 1em;
+  margin-top: 1em;
+}
+
+.Results-Name {
+  flex: 1 1 auto;
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--c_fg_90);
 }
 
 .Results-Item {
   display: flex;
   align-items: center;
+  padding: 0.5em 0;
+  border-top: 1px solid var(--c_bg_30);
 }
 
 .Results-Divider {
-  border-top: 1px solid;
   flex: 1 1 1em;
   margin: 0 1em;
-  opacity: 0.5;
+}
+
+.Results-Number {
+  font-family: monospace;
+  font-size: 1.4rem;
+}
+
+.Label {
+  display: block;
+  /* font-weight: bold; */
+  margin-bottom: 0.5em;
+}
+
+.Input {
+  border-radius: var(--rounded);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border: 1px solid var(--c_bg_30);
+  background: var(--c_bg_20);
+  color: var(--c_fg_90);
+}
+
+.Button {
+  margin-top: 1.5em;
+  border-radius: var(--rounded);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em;
+  border: 1px solid var(--c_green_40);
+  background: var(--c_green_30);
+  color: var(--c_fg_90);
+  font-weight: bold;
+}
+
+.Button:hover {
+  background: var(--c_green_40);
+}
+
+.Button:disabled {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.2);
+}
+
+::selection {
+  background: var(--c_bg_90);
+  color: var(--c_bg_10);
+}
+
+:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--c_bg_10), 0 0 0 4px var(--c_bg_80);
 }
