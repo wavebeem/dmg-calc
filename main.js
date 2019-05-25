@@ -105,7 +105,7 @@ Vue.component("spell-table", {
         tr: "",
         td: "ba bw1 b--white bg-near-white pa2 tr code",
         th: "ba bw1 b--white bg-lightest-blue pa2 tr",
-        button: "db ba bw1 b--dark-red bg-light-gray dark-red pv2 w-100 b"
+        button: "db ba bw1 b--dark-red bg-light-gray dark-red pv2 w-100 br-100 h2 b"
       }
     };
   },
@@ -114,13 +114,14 @@ Vue.component("spell-table", {
     <div>
       <div class="flex mb2">
         <h2 class="flex-auto ma0">{{ spell.name }}</h2>
-        <div class="w4">
+        <div class="w2 h2">
           <button
             type="button"
+            v-bind:aria-label="'Remove ' + spell.name"
             v-on:click="$emit('delete', spell)"
             v-bind:class="css.button"
           >
-            Remove
+            &times;
           </button>
         </div>
       </div>
