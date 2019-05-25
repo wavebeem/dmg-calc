@@ -23,6 +23,12 @@ const html = String.raw;
 Vue.component("spell-table", {
   props: ["spell"],
 
+  methods: {
+    onDeleteClick() {
+      this.$emit("delete", this.spell);
+    }
+  },
+
   filters: {
     formatNumber(value) {
       if (!value) {
@@ -96,21 +102,6 @@ Vue.component("spell-table", {
     }
   },
 
-  data() {
-    return {
-      css: {
-        thead: "",
-        tbody: "",
-        table: "w-100 collapse mb4 dt--fixed",
-        tr: "",
-        td: "ba bw1 b--white bg-near-white pa2 tr code",
-        th: "ba bw1 b--white bg-lightest-blue pa2 tr",
-        button:
-          "db ba bw1 b--dark-red bg-light-gray dark-red pv2 w-100 br-100 h2 b"
-      }
-    };
-  },
-
   template: html`
     <div>
       <div class="Results">
@@ -120,7 +111,7 @@ Vue.component("spell-table", {
             class="RemoveButton"
             type="button"
             v-bind:aria-label="'Remove ' + spell.name"
-            v-on:click="$emit('delete', spell)"
+            v-on:click="onDeleteClick"
           >
             Remove
           </button>
@@ -228,13 +219,6 @@ const app = new Vue({
   },
 
   data: {
-    css: {
-      label: "db mt3 mb1 b",
-      input: "db ba bw1 b--gray pa2 bg-white navy w-100 border-box",
-      button: "db ba bw1 b--dark-green bg-green white pv2 w-100 b",
-      buttonDisabled: "db ba bw1 b--black-20 bg-light-gray black-20 pv2 w-100 b"
-    },
-
     name: "",
     inputDamage: "0",
     inputAccuracy: "100",

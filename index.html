@@ -76,7 +76,11 @@
         </div>
       </form>
       <div class="flex-auto w-70-l">
+        <div class="Empty" v-if="spells.length === 0">
+          Try adding something
+        </div>
         <spell-table
+          v-else
           v-for="spell in spells"
           v-bind:spell="spell"
           v-on:delete="onDelete"

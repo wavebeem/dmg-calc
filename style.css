@@ -16,7 +16,9 @@
 
   --c_bg_10: hsl(200, 50%, 10%);
   --c_bg_20: hsl(200, 50%, 20%);
-  --c_bg_30: hsl(200, 43%, 30%);
+  --c_bg_30: hsl(200, 50%, 30%);
+  --c_bg_40: hsl(200, 50%, 40%);
+  --c_bg_50: hsl(200, 50%, 50%);
   --c_bg_80: hsl(200, 50%, 80%);
   --c_bg_90: hsl(200, 50%, 90%);
 
@@ -132,6 +134,12 @@ a {
   background: transparent;
   border-color: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.2);
+}
+
+.Empty {
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--c_bg_50);
 }
 
 ::selection {
