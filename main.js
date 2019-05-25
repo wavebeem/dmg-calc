@@ -103,62 +103,42 @@ Vue.component("spell-table", {
   },
 
   template: html`
-    <div>
-      <div class="Results">
-        <div class="flex mb3">
-          <h2 class="Results-Name">{{ spell.name }}</h2>
-          <button
-            class="RemoveButton"
-            type="button"
-            v-bind:aria-label="'Remove ' + spell.name"
-            v-on:click="onDeleteClick"
-          >
-            Remove
-          </button>
-        </div>
+    <div class="Results">
+      <h2 class="Results-Name">{{ spell.name }}</h2>
+      <div>
         <div class="Results-Item">
-          <div class="Results-Label">Damage: Average</div>
+          <div class="Results-Label">Damage</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageDamage | formatNumber }}
           </div>
-        </div>
-        <div class="Results-Item">
-          <div class="Results-Label">Damage: Minimum</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
-            {{ minimumDamage | formatNumber }}
+            {{ minimumDamage | formatNumber }} &ndash; {{ maximumDamage |
+            formatNumber }}
           </div>
         </div>
         <div class="Results-Item">
-          <div class="Results-Label">Damage: Maximum</div>
-          <div class="Results-Divider"></div>
-          <div class="Results-Number">
-            {{ maximumDamage | formatNumber }}
-          </div>
-        </div>
-        <div class="Results-Item">
-          <div class="Results-Label">Efficiency: Average</div>
+          <div class="Results-Label">Efficiency</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageEfficiency | formatNumber }}
           </div>
-        </div>
-        <div class="Results-Item">
-          <div class="Results-Label">Efficiency: Minimum</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
-            {{ minimumEfficiency | formatNumber }}
-          </div>
-        </div>
-        <div class="Results-Item">
-          <div class="Results-Label">Efficiency: Maximum</div>
-          <div class="Results-Divider"></div>
-          <div class="Results-Number">
-            {{ maximumEfficiency | formatNumber }}
+            {{ minimumEfficiency | formatNumber }} &ndash; {{ maximumEfficiency
+            | formatNumber }}
           </div>
         </div>
       </div>
+      <button
+        class="RemoveButton"
+        type="button"
+        v-bind:aria-label="'Remove ' + spell.name"
+        v-on:click="onDeleteClick"
+      >
+        Remove
+      </button>
     </div>
   `
 });
@@ -179,7 +159,7 @@ const app = new Vue({
         damage: this.inputDamage,
         accuracy: this.inputAccuracy,
         minimumHits: this.inputMinimumHits,
-        maximumHits: this.inputMaximumHits,
+        maximumHits: this.inputMaximumHits || this.inputMinimumHits,
         cost: this.inputCost
       });
     }
@@ -212,7 +192,6 @@ const app = new Vue({
         this.inputDamage &&
         this.inputAccuracy &&
         this.inputMinimumHits &&
-        this.inputMaximumHits &&
         this.inputCost
       );
     }
@@ -220,11 +199,11 @@ const app = new Vue({
 
   data: {
     name: "",
-    inputDamage: "0",
+    inputDamage: "",
     inputAccuracy: "100",
     inputMinimumHits: "1",
-    inputMaximumHits: "1",
-    inputCost: "0",
+    inputMaximumHits: "",
+    inputCost: "",
 
     spells: storage.get("spells", [])
   }

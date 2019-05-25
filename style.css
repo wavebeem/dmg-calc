@@ -1,12 +1,6 @@
 :root {
   --rounded: 0px;
 
-  --c_red_10: hsl(10, 75%, 10%);
-  --c_red_20: hsl(10, 75%, 20%);
-  --c_red_50: hsl(10, 75%, 50%);
-  --c_red_60: hsl(10, 75%, 60%);
-  --c_red_70: hsl(10, 75%, 70%);
-
   --c_green_10: hsl(90, 75%, 10%);
   --c_green_20: hsl(90, 75%, 20%);
   --c_green_30: hsl(90, 75%, 30%);
@@ -25,6 +19,10 @@
   --c_fg_10: hsl(90, 50%, 10%);
   --c_fg_20: hsl(90, 50%, 20%);
   --c_fg_30: hsl(90, 50%, 30%);
+  --c_fg_40: hsl(90, 50%, 40%);
+  --c_fg_50: hsl(90, 50%, 50%);
+  --c_fg_60: hsl(90, 50%, 60%);
+  --c_fg_70: hsl(90, 50%, 70%);
   --c_fg_80: hsl(90, 50%, 80%);
   --c_fg_90: hsl(90, 50%, 90%);
 }
@@ -38,28 +36,27 @@ a {
   color: inherit;
 }
 
+a:hover {
+  opacity: 0.5;
+}
+
 .RemoveButton {
-  border-radius: var(--rounded);
+  cursor: pointer;
+  margin-top: 0.5em;
+  border-radius: 0;
   box-sizing: border-box;
   display: flex;
-  align-content: center;
-  align-items: center;
+  text-decoration: underline;
   font-size: 0.9rem;
-  padding: 0 0.5em;
-  border: 1px solid;
-  font-weight: bold;
-  border-color: var(--c_red_60);
-  background: var(--c_red_50);
-  color: var(--c_red_20);
+  padding: 0;
+  font-weight: normal;
+  border: 0;
+  background: transparent;
+  color: var(--c_bg_80);
 }
 
 .RemoveButton:hover {
-  background: var(--c_red_60);
-  border-color: var(--c_red_70);
-}
-
-.RemoveButton > * {
-  flex: 1 1 auto;
+  opacity: 0.5;
 }
 
 .Results {
@@ -74,6 +71,7 @@ a {
 .Results-Name {
   flex: 1 1 auto;
   margin: 0;
+  margin-bottom: 0.5em;
   font-size: 1.3rem;
   color: var(--c_fg_90);
 }
@@ -82,6 +80,10 @@ a {
   display: flex;
   align-items: center;
   padding: 0.5em 0;
+  border-bottom: 1px solid var(--c_bg_30);
+}
+
+.Results-Item:first-child {
   border-top: 1px solid var(--c_bg_30);
 }
 
@@ -120,14 +122,14 @@ a {
   width: 100%;
   box-sizing: border-box;
   padding: 0.5em;
-  border: 1px solid var(--c_green_40);
-  background: var(--c_green_30);
+  border: 1px solid var(--c_fg_40);
+  background: var(--c_fg_30);
   color: var(--c_fg_90);
   font-weight: bold;
 }
 
 .Button:hover {
-  background: var(--c_green_40);
+  background: var(--c_fg_40);
 }
 
 .Button:disabled {
