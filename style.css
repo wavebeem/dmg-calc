@@ -1,0 +1,53 @@
+:root {
+  --CRed: hsl(0, 100%, 50%);
+
+  --CBG10: hsl(200, 50%, 10%);
+  --CBG20: hsl(200, 50%, 20%);
+  --CBG30: hsl(200, 50%, 30%);
+  --CBG80: hsl(200, 50%, 80%);
+  --CBG90: hsl(200, 50%, 90%);
+
+  --CFG10: hsl(90, 50%, 10%);
+  --CFG20: hsl(90, 50%, 20%);
+  --CFG30: hsl(90, 50%, 30%);
+  --CFG80: hsl(90, 50%, 80%);
+  --CFG90: hsl(90, 50%, 90%);
+}
+
+body {
+  background: var(--CBG10);
+  color: var(--CBG90);
+}
+
+.RemoveButton {
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 16px;
+  color: var(--CRed);
+  border: 2px solid;
+  font-weight: bold;
+  border-radius: 9999px;
+  background: transparent;
+}
+
+.Results {
+  background: var(--CBG20);
+  color: var(--CBG80);
+  padding: 0.5em;
+  font-size: 1.25rem;
+  font-family: monospace;
+}
+
+.Results-Item {
+  display: flex;
+  align-items: center;
+}
+
+.Results-Divider {
+  border-top: 1px solid;
+  flex: 1 1 1em;
+  margin: 0 1em;
+  opacity: 0.5;
+}

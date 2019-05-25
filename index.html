@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"
     />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
     <script type="module" src="main.js"></script>
     <style>
@@ -17,7 +18,7 @@
     </style>
     <title>DMG Calc</title>
   </head>
-  <body class="center sans-serif pa3 bg-light-gray near-black mw8">
+  <body class="center sans-serif pa3 mw8">
     <div id="app" class="flex-l" v-cloak>
       <form class="mr4-l flex-auto w-30-l" v-on:submit="submit($event)">
         <h1 class="mt2 mb0">Damage Calculator</h1>

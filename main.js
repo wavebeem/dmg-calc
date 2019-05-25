@@ -105,7 +105,8 @@ Vue.component("spell-table", {
         tr: "",
         td: "ba bw1 b--white bg-near-white pa2 tr code",
         th: "ba bw1 b--white bg-lightest-blue pa2 tr",
-        button: "db ba bw1 b--dark-red bg-light-gray dark-red pv2 w-100 br-100 h2 b"
+        button:
+          "db ba bw1 b--dark-red bg-light-gray dark-red pv2 w-100 br-100 h2 b"
       }
     };
   },
@@ -114,49 +115,59 @@ Vue.component("spell-table", {
     <div>
       <div class="flex mb2">
         <h2 class="flex-auto ma0">{{ spell.name }}</h2>
-        <div class="w2 h2">
           <button
             type="button"
             v-bind:aria-label="'Remove ' + spell.name"
             v-on:click="$emit('delete', spell)"
-            v-bind:class="css.button"
+            class="RemoveButton"
           >
             &times;
           </button>
-        </div>
       </div>
-      <table v-bind:class="css.table">
-        <thead v-bind:class="css.thead">
-          <tr v-bind:class="css.tr">
-            <th v-bind:class="css.th"></th>
-            <th v-bind:class="css.th">Damage</th>
-            <th v-bind:class="css.th">Efficiency</th>
-          </tr>
-        </thead>
-        <tbody v-bind:class="css.tbody">
-          <tr v-bind:class="css.tr">
-            <th v-bind:class="css.th">Average</th>
-            <td v-bind:class="css.td">{{ averageDamage | formatNumber }}</td>
-            <td v-bind:class="css.td">
+      <div class="Results">
+          <div class="Results-Item">
+            <div class="Results-Label">Average Damage</div>
+            <div class="Results-Divider"></div>
+            <div class="Results-Number">
+              {{ averageDamage | formatNumber }}
+            </div>
+          </div>
+          <div class="Results-Item">
+            <div class="Results-Label">Average Efficiency</div>
+            <div class="Results-Divider"></div>
+            <div class="Results-Number">
               {{ averageEfficiency | formatNumber }}
-            </td>
-          </tr>
-          <tr v-bind:class="css.tr">
-            <th v-bind:class="css.th">Minimum</th>
-            <td v-bind:class="css.td">{{ minimumDamage | formatNumber }}</td>
-            <td v-bind:class="css.td">
+            </div>
+          </div>
+          <div class="Results-Item">
+            <div class="Results-Label">Minimum Damage</div>
+            <div class="Results-Divider"></div>
+            <div class="Results-Number">
+              {{ minimumDamage | formatNumber }}
+            </div>
+          </div>
+          <div class="Results-Item">
+            <div class="Results-Label">Minimum Efficiency</div>
+            <div class="Results-Divider"></div>
+            <div class="Results-Number">
               {{ minimumEfficiency | formatNumber }}
-            </td>
-          </tr>
-          <tr v-bind:class="css.tr">
-            <th v-bind:class="css.th">Maximum</th>
-            <td v-bind:class="css.td">{{ maximumDamage | formatNumber }}</td>
-            <td v-bind:class="css.td">
+            </div>
+          </div>
+          <div class="Results-Item">
+            <div class="Results-Label">Maximum Damage</div>
+            <div class="Results-Divider"></div>
+            <div class="Results-Number">
+              {{ maximumDamage | formatNumber }}
+            </div>
+          </div>
+          <div class="Results-Item">
+            <div class="Results-Label">Maximum Efficiency</div>
+            <div class="Results-Divider"></div>
+            <div class="Results-Number">
               {{ maximumEfficiency | formatNumber }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </div>
+          </div>
+      </div>
     </div>
   `
 });
