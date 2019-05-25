@@ -23,13 +23,22 @@ const html = String.raw;
 Vue.component("spell-table", {
   props: ["spell"],
 
+  filters: {
+    formatNumber(value) {
+      if (!value) {
+        return "–"; // ndash
+      }
+      return value.toFixed(1);
+    }
+  },
+
   computed: {
     damage() {
       return this.spell.damage;
     },
 
     accuracy() {
-      return this.spell.accuracy;
+      return this.spell.accuracy / 100;
     },
 
     cost() {
@@ -153,15 +162,6 @@ Vue.component("spell-table", {
 
 const app = new Vue({
   el: "#app",
-
-  filters: {
-    formatNumber(value) {
-      if (!value) {
-        return "–"; // ndash
-      }
-      return value.toFixed(3);
-    }
-  },
 
   methods: {
     onDelete(spell) {
