@@ -166,10 +166,7 @@ a:hover {
 }
 
 .Empty {
-  margin-top: 2em;
-  font-size: 1.1rem;
   text-align: center;
-  color: var(--uno_70);
 }
 
 ::selection {
