@@ -82,12 +82,10 @@ a:hover {
   border-top: 1px solid var(--uno_20);
 }
 
-.Results-Divider {
-  flex: 1 1 1em;
-  margin: 0 1em;
-}
-
 .Results-Number {
+  text-align: right;
+  flex: 1 1 1em;
+  margin-left: 1em;
   font-family: monospace;
   font-size: 1.4rem;
 }
@@ -121,7 +119,7 @@ a:hover {
 
 .Radio-Input:checked {
   box-shadow: inset 0 0 0 3px var(--uno_30);
-  background: var(--due_90);
+  background: var(--uno_90);
 }
 
 .Radio-Input:checked:focus {

@@ -129,63 +129,54 @@ const SpellTable = {
       <div>
         <div class="Results-Item" v-if="mode === 'average'">
           <div class="Results-Label">Damage</div>
-          <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageDamage | formatNumber }}
           </div>
         </div>
         <div class="Results-Item" v-if="mode === 'minimum'">
           <div class="Results-Label">Damage</div>
-          <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ minimumDamage | formatNumber }}
           </div>
         </div>
         <div class="Results-Item" v-if="mode === 'maximum'">
           <div class="Results-Label">Damage</div>
-          <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ maximumDamage | formatNumber }}
           </div>
         </div>
         <div class="Results-Item" v-if="time > 1 && mode === 'average'">
           <div class="Results-Label">DPS</div>
-          <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageDPS | formatNumber }}
           </div>
         </div>
         <div class="Results-Item" v-if="time > 1 && mode === 'minimum'">
           <div class="Results-Label">DPS</div>
-          <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ minimumDPS | formatNumber }}
           </div>
         </div>
         <div class="Results-Item" v-if="time > 1 && mode === 'maximum'">
           <div class="Results-Label">DPS</div>
-          <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ maximumDPS | formatNumber }}
           </div>
         </div>
         <div class="Results-Item" v-if="mode === 'average'">
           <div class="Results-Label">Efficiency</div>
-          <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageEfficiency | formatNumber }}
           </div>
         </div>
         <div class="Results-Item" v-if="mode === 'minimum'">
           <div class="Results-Label">Efficiency</div>
-          <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ minimumEfficiency | formatNumber }}
           </div>
         </div>
         <div class="Results-Item" v-if="mode === 'maximum'">
           <div class="Results-Label">Efficiency</div>
-          <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ maximumEfficiency | formatNumber }}
           </div>
