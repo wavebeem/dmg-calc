@@ -148,6 +148,27 @@ const SpellTable = {
             {{ maximumDamage | formatNumber }}
           </div>
         </div>
+        <div class="Results-Item" v-if="time > 1 && mode === 'average'">
+          <div class="Results-Label">DPS</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ averageDPS | formatNumber }}
+          </div>
+        </div>
+        <div class="Results-Item" v-if="time > 1 && mode === 'minimum'">
+          <div class="Results-Label">DPS</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ minimumDPS | formatNumber }}
+          </div>
+        </div>
+        <div class="Results-Item" v-if="time > 1 && mode === 'maximum'">
+          <div class="Results-Label">DPS</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ maximumDPS | formatNumber }}
+          </div>
+        </div>
         <div class="Results-Item" v-if="mode === 'average'">
           <div class="Results-Label">Efficiency</div>
           <div class="Results-Divider"></div>
@@ -167,27 +188,6 @@ const SpellTable = {
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ maximumEfficiency | formatNumber }}
-          </div>
-        </div>
-        <div class="Results-Item" v-if="mode === 'average'">
-          <div class="Results-Label">DPS</div>
-          <div class="Results-Divider"></div>
-          <div class="Results-Number">
-            {{ averageDPS | formatNumber }}
-          </div>
-        </div>
-        <div class="Results-Item" v-if="mode === 'minimum'">
-          <div class="Results-Label">DPS</div>
-          <div class="Results-Divider"></div>
-          <div class="Results-Number">
-            {{ minimumDPS | formatNumber }}
-          </div>
-        </div>
-        <div class="Results-Item" v-if="mode === 'maximum'">
-          <div class="Results-Label">DPS</div>
-          <div class="Results-Divider"></div>
-          <div class="Results-Number">
-            {{ maximumDPS | formatNumber }}
           </div>
         </div>
       </div>
