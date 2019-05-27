@@ -20,8 +20,8 @@ class Storage {
 const storage = new Storage();
 const html = String.raw;
 
-Vue.component("spell-table", {
-  props: ["spell"],
+const SpellTable = {
+  props: ["spell", "mode"],
 
   methods: {
     onDeleteClick() {
@@ -117,7 +117,7 @@ Vue.component("spell-table", {
 
   template: html`
     <div class="Results">
-      <h2 class="Results-Name">{{ spell.name }}</h2>
+      <h2 class="Results-Name">{{ spell.name }} ({{ mode }})</h2>
       <div>
         <div class="Results-Item">
           <div class="Results-Label">Damage: Average</div>
@@ -179,7 +179,9 @@ Vue.component("spell-table", {
       </button>
     </div>
   `
-});
+};
+
+Vue.component("spell-table", SpellTable);
 
 function makeKey(string) {
   return [string, new Date().toISOString(), Math.random()].join(" | ");
@@ -253,6 +255,9 @@ const app = new Vue({
     inputMaximumHits: "",
     inputCost: "",
     inputTime: "",
+
+    // average | minimum | maximum
+    mode: "average",
 
     spells: storage.get("spells", [])
   }

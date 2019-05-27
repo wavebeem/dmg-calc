@@ -92,8 +92,30 @@ a:hover {
 
 .Label {
   display: block;
-  /* font-weight: bold; */
   margin-bottom: 0.5em;
+}
+
+.Radio {
+  user-select: none;
+  display: block;
+  width: 100%;
+  padding: 0.25em 0;
+}
+
+.Radio-Input {
+  -webkit-appearance: none;
+  border-radius: 9999px;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+  border: 1px solid var(--uno_30);
+  background: var(--uno_20);
+  color: var(--uno_90);
+}
+
+.Radio-Input:checked {
+  box-shadow: inset 0 0 0 3px var(--uno_20);
+  background: var(--due_90);
 }
 
 .Input {
@@ -132,6 +154,7 @@ a:hover {
 }
 
 .Empty {
+  margin-top: 2em;
   font-size: 1.1rem;
   text-align: center;
   color: var(--uno_50);

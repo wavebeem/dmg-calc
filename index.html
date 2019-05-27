@@ -79,7 +79,39 @@
           </button>
         </div>
       </form>
-      <div class="flex-auto w-70-l">
+      <div class="flex-auto w-70-l mt3">
+        <div>
+          <label class="Radio">
+            <input
+              type="radio"
+              class="Radio-Input"
+              id="mode-average"
+              value="average"
+              v-model="mode"
+            />
+            Show averages
+          </label>
+          <label class="Radio">
+            <input
+              type="radio"
+              class="Radio-Input"
+              id="mode-minimum"
+              value="minimum"
+              v-model="mode"
+            />
+            Show minimums
+          </label>
+          <label class="Radio">
+            <input
+              type="radio"
+              class="Radio-Input"
+              id="mode-maximum"
+              value="maximum"
+              v-model="mode"
+            />
+            Show maximums
+          </label>
+        </div>
         <div class="Empty" v-if="spells.length === 0">
           Try adding something
         </div>
@@ -87,6 +119,7 @@
           v-else
           v-for="spell in spells"
           v-bind:spell="spell"
+          v-bind:mode="mode"
           v-on:delete="onDelete"
         ></spell-table>
       </div>
