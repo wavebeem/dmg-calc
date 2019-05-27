@@ -112,60 +112,82 @@ const SpellTable = {
 
     averageDPS() {
       return this.averageDamage / this.time;
+    },
+
+    minimumDPS() {
+      return this.minimumDamage / this.time;
+    },
+
+    maximumDPS() {
+      return this.maximumDamage / this.time;
     }
   },
 
   template: html`
     <div class="Results">
-      <h2 class="Results-Name">{{ spell.name }} ({{ mode }})</h2>
+      <h2 class="Results-Name">{{ spell.name }}</h2>
       <div>
-        <div class="Results-Item">
-          <div class="Results-Label">Damage: Average</div>
+        <div class="Results-Item" v-if="mode === 'average'">
+          <div class="Results-Label">Damage</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageDamage | formatNumber }}
           </div>
         </div>
-        <div class="Results-Item">
-          <div class="Results-Label">Damage: Minumum</div>
+        <div class="Results-Item" v-if="mode === 'minimum'">
+          <div class="Results-Label">Damage</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ minimumDamage | formatNumber }}
           </div>
         </div>
-        <div class="Results-Item">
-          <div class="Results-Label">Damage: Maximum</div>
+        <div class="Results-Item" v-if="mode === 'maximum'">
+          <div class="Results-Label">Damage</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ maximumDamage | formatNumber }}
           </div>
         </div>
-        <div class="Results-Item">
-          <div class="Results-Label">Efficiency: Average</div>
+        <div class="Results-Item" v-if="mode === 'average'">
+          <div class="Results-Label">Efficiency</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageEfficiency | formatNumber }}
           </div>
         </div>
-        <div class="Results-Item">
-          <div class="Results-Label">Efficiency: Minimum</div>
+        <div class="Results-Item" v-if="mode === 'minimum'">
+          <div class="Results-Label">Efficiency</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ minimumEfficiency | formatNumber }}
           </div>
         </div>
-        <div class="Results-Item">
-          <div class="Results-Label">Efficiency: Maximum</div>
+        <div class="Results-Item" v-if="mode === 'maximum'">
+          <div class="Results-Label">Efficiency</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ maximumEfficiency | formatNumber }}
           </div>
         </div>
-        <div class="Results-Item">
-          <div class="Results-Label">DPS: Average</div>
+        <div class="Results-Item" v-if="mode === 'average'">
+          <div class="Results-Label">DPS</div>
           <div class="Results-Divider"></div>
           <div class="Results-Number">
             {{ averageDPS | formatNumber }}
+          </div>
+        </div>
+        <div class="Results-Item" v-if="mode === 'minimum'">
+          <div class="Results-Label">DPS</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ minimumDPS | formatNumber }}
+          </div>
+        </div>
+        <div class="Results-Item" v-if="mode === 'maximum'">
+          <div class="Results-Label">DPS</div>
+          <div class="Results-Divider"></div>
+          <div class="Results-Number">
+            {{ maximumDPS | formatNumber }}
           </div>
         </div>
       </div>
