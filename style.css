@@ -1,13 +1,15 @@
 :root {
-  --rounded: 0px;
+  --rounded: 1px;
 
-  --uno_10: hsl(200, 70%, 10%);
-  --uno_20: hsl(200, 70%, 20%);
-  --uno_30: hsl(200, 70%, 30%);
-  --uno_40: hsl(200, 70%, 40%);
-  --uno_50: hsl(200, 70%, 50%);
-  --uno_80: hsl(200, 70%, 80%);
-  --uno_90: hsl(200, 70%, 90%);
+  --uno_10: hsl(200, 90%, 10%);
+  --uno_20: hsl(200, 90%, 20%);
+  --uno_30: hsl(200, 90%, 30%);
+  --uno_40: hsl(200, 90%, 40%);
+  --uno_50: hsl(200, 90%, 50%);
+  --uno_60: hsl(200, 90%, 60%);
+  --uno_70: hsl(200, 90%, 70%);
+  --uno_80: hsl(200, 90%, 80%);
+  --uno_90: hsl(200, 90%, 90%);
 
   --due_10: hsl(90, 70%, 10%);
   --due_20: hsl(90, 70%, 20%);
@@ -21,7 +23,7 @@
 }
 
 body {
-  background: var(--uno_10);
+  background: var(--uno_20);
   color: var(--uno_80);
 }
 
@@ -45,18 +47,18 @@ a:hover {
   font-weight: normal;
   border: 0;
   background: transparent;
-  color: var(--uno_80);
+  color: var(--due_50);
 }
 
 .RemoveButton:hover {
-  opacity: 0.5;
+  color: var(--due_70);
 }
 
 .Results {
   border-radius: var(--rounded);
   border: 1px solid var(--uno_30);
-  background: var(--uno_20);
-  color: var(--due_80);
+  background: var(--uno_10);
+  color: var(--uno_80);
   padding: 1em;
   margin-top: 1em;
 }
@@ -66,18 +68,18 @@ a:hover {
   margin: 0;
   margin-bottom: 0.5em;
   font-size: 1.3rem;
-  color: var(--due_90);
+  color: var(--uno_90);
 }
 
 .Results-Item {
   display: flex;
   align-items: center;
   padding: 0.5em 0;
-  border-bottom: 1px solid var(--uno_30);
+  border-bottom: 1px solid var(--uno_20);
 }
 
 .Results-Item:first-child {
-  border-top: 1px solid var(--uno_30);
+  border-top: 1px solid var(--uno_20);
 }
 
 .Results-Divider {
@@ -108,14 +110,19 @@ a:hover {
   width: 1em;
   height: 1em;
   margin-right: 0.5em;
-  border: 1px solid var(--uno_30);
-  background: var(--uno_20);
+  border: 1px solid var(--uno_40);
+  background: var(--uno_30);
   color: var(--uno_90);
 }
 
 .Radio-Input:checked {
-  box-shadow: inset 0 0 0 3px var(--uno_20);
+  box-shadow: inset 0 0 0 3px var(--uno_30);
   background: var(--due_90);
+}
+
+.Radio-Input:checked:focus {
+  box-shadow: inset 0 0 0 3px var(--uno_30), 0 0 0 2px var(--uno_10),
+    0 0 0 4px var(--uno_80);
 }
 
 .Input {
@@ -125,8 +132,8 @@ a:hover {
   box-sizing: border-box;
   margin-bottom: 1em;
   padding: 0.5em;
-  border: 1px solid var(--uno_30);
-  background: var(--uno_20);
+  border: 1px solid var(--uno_40);
+  background: var(--uno_30);
   color: var(--uno_90);
 }
 
@@ -143,21 +150,17 @@ a:hover {
   font-weight: bold;
 }
 
-.Button:hover {
-  background: var(--due_40);
-}
-
 .Button:disabled {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.2);
+  background: var(--uno_20);
+  border-color: var(--uno_30);
+  color: var(--uno_40);
 }
 
 .Empty {
   margin-top: 2em;
   font-size: 1.1rem;
   text-align: center;
-  color: var(--uno_50);
+  color: var(--uno_70);
 }
 
 ::selection {

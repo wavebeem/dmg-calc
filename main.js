@@ -100,7 +100,7 @@ const SpellTable = {
     },
 
     maximumDamage() {
-      return this.damage * this.accuracy * this.maximumHits;
+      return this.damage * this.maximumHits;
     },
 
     maximumEfficiency() {
@@ -238,11 +238,11 @@ const app = new Vue({
     },
 
     accuracy() {
-      return Number(this.inputAccuracy || 100) / 100;
+      return Number(this.inputAccuracy) / 100;
     },
 
     minimumHits() {
-      return Number(this.inputMinimumHits || 1);
+      return Number(this.inputMinimumHits);
     },
 
     maximumHits() {
@@ -263,8 +263,7 @@ const app = new Vue({
         this.inputDamage &&
         this.inputAccuracy &&
         this.inputMinimumHits &&
-        this.inputCost &&
-        this.inputTime
+        this.inputCost
       );
     }
   },
