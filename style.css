@@ -32,7 +32,7 @@ a {
 }
 
 a:hover {
-  opacity: 0.5;
+  color: white;
 }
 
 .RemoveButton {
@@ -51,7 +51,7 @@ a:hover {
 }
 
 .RemoveButton:hover {
-  color: var(--due_70);
+  color: white;
 }
 
 .Results {
@@ -104,6 +104,10 @@ a:hover {
   padding: 0.25em 0;
 }
 
+.Radio:hover {
+  color: white;
+}
+
 .Radio-Input {
   -webkit-appearance: none;
   border-radius: 9999px;
@@ -148,6 +152,11 @@ a:hover {
   background: var(--due_30);
   color: var(--due_90);
   font-weight: bold;
+}
+
+.Button:hover {
+  border-color: var(--due_50);
+  background-color: var(--due_40);
 }
 
 .Button:disabled {
