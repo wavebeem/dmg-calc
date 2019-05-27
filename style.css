@@ -22,6 +22,10 @@
   --due_90: hsl(90, 70%, 90%);
 }
 
+[v-cloak] {
+  display: none;
+}
+
 body {
   background: var(--uno_20);
   color: var(--uno_80);
